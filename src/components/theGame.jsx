@@ -2,15 +2,13 @@ import React from 'react'
 import { weapons, rules } from '../rules.js'
 
 
-var weaponsToPlay = weapons.slice(0, 3)
-var randomNumber
 
 class Game extends React.Component {
 
     constructor() {
         super()
         this.state = {
-            select: true,
+            select: false,
             userPicked: '',
             computerPicked: '',
             result: 0
@@ -29,16 +27,13 @@ class Game extends React.Component {
             this.setState({result: this.state.result - 1})
         }
     }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.userPicked !== prevState.userPicked) {
-            this.checkWhoWins()
-        }
-    }
+   
     
     
     render() {
-        
+        var weaponsToPlay = weapons.slice(0, 3)
+        var randomNumber
+
 
         return (
             <>
@@ -52,7 +47,9 @@ class Game extends React.Component {
 
 
                             randomNumber = Math.floor(Math.random() * 3)
-                            this.setState({userPicked: each, computerPicked: weaponsToPlay[randomNumber]})
+                            this.setState({userPicked: each, computerPicked: weaponsToPlay[randomNumber]}, () => { 
+                                this.checkWhoWins()
+                            })
 
 
                         }}>{each}</button>  
@@ -69,8 +66,9 @@ class Game extends React.Component {
                 <hr />
                 <h1>result</h1>
                 <p>{this.state.result}</p>
+
                 <button onClick={() => {
-                    this.setState({userPicked: '', computerPicked: '', result: 0})
+                    this.setState({userPicked: '', computerPicked: ''})
                 }}>try again</button>
             </>
         );
