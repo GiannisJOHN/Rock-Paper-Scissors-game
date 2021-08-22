@@ -1,11 +1,179 @@
 :root {
   --main-color: white;
   --main-text-color: white;
+  --background-color: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%))
 }
+
 /* use variale var(--name)*/
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+body {
+  background-image: var(--background-color);
+  height: 1000px;
+}
+/*--------------------------------------------------------------------*/
+header {
+  padding: 0 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.scoreContainer {
+  width: 700px;
+  padding: 16px;
+  border: 4px solid rgba(89, 103, 129, 0.874);
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 46px;
+}
+.theScore {
+  width: 150px;
+  height: 114px;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.theScore h4 {
+  color: hsl(229, 64%, 46%);
+  margin: 0;
+  letter-spacing: 1.8px;
+}
+.theScore p {
+  font-size: 65px;
+  color: hsl(229, 25%, 31%);
+  margin: 8px 0 0 0;
+  line-height: 45px;
+}
+/*--------------------------------------------------------------------*/
+.selectWeapon {
+  margin: 43px 0;
+  padding: 0 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.colorfulBoxes {
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.colorfulBoxes-Small {
+  width: 200px;
+  height: 200px;
+}
+.colorfulBoxes-Big {
+  width: 300px;
+  height: 300px;
+}
+.scissors {
+  background-image: radial-gradient(circle, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: inset 0px -8px 2px #C76C1D;
+}
+.paper {
+  background-image: radial-gradient(circle, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  box-shadow: inset 0px -8px 2px #2945C1;
+}
+.rock {
+  background-image: radial-gradient(circle, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: inset 0px -8px 2px #A11736;
+}
+.innerWhite {
+  background-color: #E3E3E3;
+  border-radius: 100%;
+  box-shadow: inset 0px 8px 2px #BABFD5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.innerWhite-Small {
+  width: 150px;
+  height: 150px;
+}
+.innerWhite-Big {
+  width: 225px;
+  height: 225px;
+}
+.innerWhite button {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.colorfulBoxesContainer {
+  width: 480px;
+  height: 433px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.blackTriangle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.colorfulBoxesContainer .colorfulFlex:first-child {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+.colorfulBoxesContainer .colorfulFlex:nth-of-type(2) {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+.colorfulBoxesContainer .colorfulFlex:nth-of-type(3) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+/*--------------------------------------------------------------------*/
+.resultUI {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 43px 0;
+}
+.playersContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+}
+.playersContainer h2 {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.playersContainer > div:first-child, .playersContainer > div:last-child {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+/*--------------------------------------------------------------------*/
+.animation-one {
+  animation-name: comeIn;
+  animation-duration: 0.8s;
+}
+@keyframes comeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }

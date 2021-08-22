@@ -16,14 +16,14 @@
 - Spock beats Rock
 */
 
-export var weapons = ['Scissors', 'Paper', 'Rock', 'Lizard', 'Spock']
+export var weapons = ['scissors', 'paper', 'rock', 'lizard', 'spock']
 
 export var rules = {
-    Scissors: ['Paper', 'Lizard'],
-    Paper: ['Rock', 'Spock'],
-    Rock: ['Lizard', 'Scissors'],
-    Lizard: ['Paper', 'Spock'],
-    Spock: ['Scissors', 'Rock']
+    scissors: ['paper', 'lizard'],
+    paper: ['rock', 'spock'],
+    rock: ['lizard', 'scissors'],
+    lizard: ['paper', 'spock'],
+    spock: ['scissors', 'rock']
 }
 
 
