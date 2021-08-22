@@ -1,7 +1,7 @@
 :root {
   --main-color: white;
   --main-text-color: white;
-  --background-color: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%))
+  --background-color: radial-gradient(circle at top, hsl(214, 47%, 23%, 0.95), hsl(237, 49%, 15%, 0.95))
 }
 
 /* use variale var(--name)*/
@@ -11,10 +11,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Barlow Semi Condensed', sans-serif;
+  letter-spacing: 1.8px;
+}
+html {
+  height: 100%;
+  scroll-behavior: smooth;
 }
 body {
+  height: 100%;
+  min-height: 1200px;
+}
+#root {
+  height: 100%;
   background-image: var(--background-color);
-  height: 1000px;
 }
 /*--------------------------------------------------------------------*/
 header {
@@ -46,7 +55,6 @@ header {
 .theScore h4 {
   color: hsl(229, 64%, 46%);
   margin: 0;
-  letter-spacing: 1.8px;
 }
 .theScore p {
   font-size: 65px;
@@ -147,33 +155,208 @@ header {
   display: flex;
   justify-content: center;
 }
+.colorfulFlex {
+  position: relative;
+}
 /*--------------------------------------------------------------------*/
 .resultUI {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 43px 0;
+  margin: 80px 0;
 }
 .playersContainer {
   display: flex;
   justify-content: space-between;
-  width: 700px;
+  width: 100%;
+  max-width: 920px;
 }
 .playersContainer h2 {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 }
 .playersContainer > div:first-child, .playersContainer > div:last-child {
   display: flex;
   flex-direction: column;
   color: white;
+  position: relative;
+}
+/*--------------------------------------------------------------------*/
+.announce {
+  width: 250px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-self: flex-end;
+  z-index: 2;
+}
+.announce h1 {
+  font-size: 58px;
+  color: white;
+  text-align: center;
+  margin-bottom: 27px;
+  line-height: 50px;
+}
+.announce button {
+  width: 220px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px black solid;
+  color: #BE3954;
+  cursor: pointer;
+  font-weight: 700;
 }
 /*--------------------------------------------------------------------*/
 .animation-one {
   animation-name: comeIn;
   animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
+.animation-two {
+  animation-name: computer;
+  animation-duration: 2s;
+  animation-delay: 0.3s;
+  animation-timing-function: cubic-bezier(0.68, 0.55, 0.265, 1.55);
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
 }
 @keyframes comeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
+}
+@keyframes computer {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+/*--------------------------------------------------------------------*/
+.animatedCircles {
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.animate-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  position: absolute;
+  background-color: rgba(240, 240, 240, 0.25);
+  animation-name: circles;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+}
+@keyframes circles {
+  0% {opacity: 0.25; transform: scale(1);}
+  100% {opacity: 0;transform: scale(2);}
+}
+/*--------------------------------------------------------------------*/
+footer {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 30px;
+}
+footer button {
+  width: 130px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px rgba(89, 103, 129, 0.874) solid;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+.bgVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -2;
+}
+.rulesModal {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  right: 0;
+  bottom: 0;
+  background-color:rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.rulesModal > div {
+  background-color: white;
+  height: 415px;
+  width: 400px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 34px;
+}
+.modalHeader {
+  width: 100%;
+  margin: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modalHeader h1 {
+  color: #3D4260;
+  font-weight: 700;
+}
+.modalHeader button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 5px;
+  font-size: 22px;
+  color: #BABFD5;
+  text-align: center;
+  letter-spacing: 0;
+  background-color: transparent;
+  transition: 0.3s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+.modalHeader button:hover {
+  color: black;
+}
+.attribution {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.attribution p {
+  font-size: 40px;
+  color: white;
+  font-weight: 600;
+  line-height: 60px;
+}
+.attribution a {
+  text-decoration: none;
+  color: rgba(73, 78, 224, 0.95);
+  transition: 0.3s ease;
+}
+.attribution a:hover {
+  color: rgba(255, 166, 1, 0.95);
 }

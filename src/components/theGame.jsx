@@ -25,11 +25,16 @@ class Game extends React.Component {
         if (this.state.userPicked === '') {
             return
         } else if (rules[this.state.userPicked].includes(this.state.computerPicked)) {
-            this.setState({result: this.state.result + 1, wins: 'user'})
+            setTimeout(() => {
+                this.setState({result: this.state.result + 1, wins: 'user'})
+            }, 1000)
+    
         } else if (this.state.userPicked === this.state.computerPicked) {
             this.setState({wins: 'none'})
         } else {
-            this.setState({result: this.state.result - 1, wins: 'computer'})
+            setTimeout(() => {
+                this.setState({result: this.state.result - 1, wins: 'computer'})
+            }, 1000)
         }
     }
    
@@ -66,6 +71,7 @@ class Game extends React.Component {
                                 colorThis={each}
                                 colorfulSize='colorfulBoxes-Small'
                                 innerSize='innerWhite-Small'
+                                animateCircles={false}
                                 >
                                     <button onClick={() => {
                                     randomNumber = Math.floor(Math.random() * 3)
@@ -87,39 +93,48 @@ class Game extends React.Component {
                 
                 <div className="resultUI animation-one" style={displayResultUI}>
                     <div className="playersContainer">
+                        
                         <div>
                             <h2>YOU PICKED</h2>
                             <Colorful 
                             colorThis={this.state.userPicked} 
                             colorfulSize='colorfulBoxes-Big'
                             innerSize='innerWhite-Big'
+                            animateCircles={this.state.wins === 'user' ? true : false}
                             >
-                                    <button>
+                                    <button style={{cursor: 'default'}}>
                                         <img style={{width: '100px'}} src={icons[this.state.userPicked]} alt="" />
                                     </button>
-                            </Colorful>                    
+                            </Colorful>
+                                       
                         </div>
-                        <div>
+
+                        <div className='announce animation-one' style={{animationDuration: '2.5s', animationDelay: '1s', opacity: '0'}}>
                             <h1>{winMessage[this.state.wins]}</h1>
                             <button onClick={() => {
-                                this.setState({selectStep: true, userPicked: '', computerPicked: ''})
+                                this.setState({selectStep: true, userPicked: '', computerPicked: '', wins: 'none'})
                             }}>PLAY AGAIN</button>
                         </div>
-                        <div>
+
+                        <div className='animation-two' style={{opacity: '0'}}>
                             <h2>THE HOUSE PICKED</h2>
                             <Colorful 
                             colorThis={this.state.computerPicked} 
                             colorfulSize='colorfulBoxes-Big'
                             innerSize='innerWhite-Big'
+                            animation='animation-two'
+                            animateCircles={this.state.wins === 'computer' ? true : false}
                             >
-                                    <button>
+                                    <button style={{cursor: 'default'}}>
                                         <img style={{width: '100px'}} src={icons[this.state.computerPicked]} alt="" />
                                     </button>
                             </Colorful> 
-                            <div className="defaultCircle"></div>
+                            
                         </div>
                     </div>
                 </div>
+ 
+                
             </>
         );
     }

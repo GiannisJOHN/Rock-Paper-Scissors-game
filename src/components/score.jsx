@@ -4,6 +4,8 @@ import logo from '../images/logo.svg'
 class Score extends React.Component {
 
     render() {
+        
+        
         return (
             <>
                 <header>
