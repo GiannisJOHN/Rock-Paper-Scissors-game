@@ -16,11 +16,7 @@ class Colorful extends React.Component {
             <>
                     <div className='colorfulFlex'>
                         <div 
-                        className={`colorfulBoxes 
-                        ${this.props.colorThis} 
-                        ${this.props.colorfulSize}
-                        
-                        `}>
+                        className={`colorfulBoxes ${this.props.colorThis} ${this.props.colorfulSize}`}>
                             <div className={`innerWhite ${this.props.innerSize}`}>
                                 {this.props.children}
                             </div>

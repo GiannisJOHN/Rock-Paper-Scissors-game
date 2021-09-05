@@ -29,8 +29,11 @@ class App extends React.Component {
         <video autoPlay="autoplay" muted loop className="bgVideo">
           <source src={bgVideo} type="video/mp4" />
         </video>
-        <div className="rulesModal" style={{display: this.state.modalOpened === true ? 'flex' : 'none'}}>
-          <div>
+
+        <div className="rulesModal" style={{display: this.state.modalOpened === true ? 'flex' : 'none'}} onClick={
+                () => { this.setState({modalOpened: false}) }
+              }>
+          <div onClick={(event) => {event.stopPropagation()}}>
             <div className="modalHeader">
               <h1>RULES</h1>
               <button onClick={

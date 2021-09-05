@@ -80,7 +80,7 @@ class Game extends React.Component {
                                         userPicked: each,
                                         computerPicked: weaponsToPlay[randomNumber]    
                                         }, () => { this.checkWhoWins() } )}}>
-                                        <img style={{width: '65px'}} src={icons[each]} alt="" />
+                                        <img  src={icons[each]} alt="" />
                                     </button>
                                 </Colorful>
                             )
@@ -103,7 +103,7 @@ class Game extends React.Component {
                             animateCircles={this.state.wins === 'user' ? true : false}
                             >
                                     <button style={{cursor: 'default'}}>
-                                        <img style={{width: '100px'}} src={icons[this.state.userPicked]} alt="" />
+                                        <img   src={icons[this.state.userPicked]} alt="" />
                                     </button>
                             </Colorful>
                                        
@@ -126,7 +126,7 @@ class Game extends React.Component {
                             animateCircles={this.state.wins === 'computer' ? true : false}
                             >
                                     <button style={{cursor: 'default'}}>
-                                        <img style={{width: '100px'}} src={icons[this.state.computerPicked]} alt="" />
+                                        <img   src={icons[this.state.computerPicked]} alt="" />
                                     </button>
                             </Colorful> 
                             

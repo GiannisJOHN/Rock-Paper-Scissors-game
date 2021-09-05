@@ -18,12 +18,13 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  min-height: 100%;
   height: 100%;
-  min-height: 1200px;
 }
 #root {
   height: 100%;
   background-image: var(--background-color);
+  overflow-x: hidden;
 }
 /*--------------------------------------------------------------------*/
 header {
@@ -31,14 +32,17 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 200px;
 }
 .scoreContainer {
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   padding: 16px;
   border: 4px solid rgba(89, 103, 129, 0.874);
   border-radius: 18px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 46px;
 }
 .theScore {
@@ -51,6 +55,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-left: 5px;
 }
 .theScore h4 {
   color: hsl(229, 64%, 46%);
@@ -64,7 +69,7 @@ header {
 }
 /*--------------------------------------------------------------------*/
 .selectWeapon {
-  margin: 43px 0;
+  margin: 50px 0 50px 0;
   padding: 0 15px;
   width: 100%;
   display: flex;
@@ -79,6 +84,7 @@ header {
 .colorfulBoxes-Small {
   width: 200px;
   height: 200px;
+  min-width: 120px;
 }
 .colorfulBoxes-Big {
   width: 300px;
@@ -120,9 +126,10 @@ header {
   border: none;
   background-color: transparent;
 }
+.innerWhite button img {
+  width: 60%; 
+}
 .colorfulBoxesContainer {
-  width: 480px;
-  height: 433px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,30 +137,28 @@ header {
   position: relative;
 }
 .blackTriangle {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: -1;
+  position: relative;
+}
+.blackTriangle img {
+  width: 286px;
+}
+.colorfulBoxesContainer .colorfulFlex {
+  position: absolute;
 }
 .colorfulBoxesContainer .colorfulFlex:first-child {
-  width: 50%;
-  display: flex;
-  justify-content: flex-start;
+  top: -100px;
+  left: -100px;
 }
 .colorfulBoxesContainer .colorfulFlex:nth-of-type(2) {
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
+  top: -100px;
+  right: -100px;
 }
 .colorfulBoxesContainer .colorfulFlex:nth-of-type(3) {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  bottom: -100px;
 }
 .colorfulFlex {
   position: relative;
@@ -167,7 +172,7 @@ header {
 }
 .playersContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   max-width: 920px;
 }
@@ -178,8 +183,15 @@ header {
 .playersContainer > div:first-child, .playersContainer > div:last-child {
   display: flex;
   flex-direction: column;
+  align-items: center;
   color: white;
   position: relative;
+}
+.playersContainer > div:first-child {
+  margin-right: 10px;
+}
+.playersContainer > div:last-child {
+  margin-left: 10px;
 }
 /*--------------------------------------------------------------------*/
 .announce {
@@ -279,6 +291,7 @@ footer button {
   cursor: pointer;
   font-weight: 700;
 }
+/*--------------------------------------------------------------------*/
 .bgVideo {
   position: fixed;
   right: 0;
@@ -287,6 +300,7 @@ footer button {
   min-height: 100%;
   z-index: -2;
 }
+/*--------------------------------------------------------------------*/
 .rulesModal {
   position: fixed;
   min-width: 100%;
@@ -297,17 +311,21 @@ footer button {
   display: none;
   justify-content: center;
   align-items: center;
+  padding: 0 12px 0 12px;
 }
 .rulesModal > div {
   background-color: white;
-  height: 415px;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 34px;
+  padding: 0 34px 36px 34px;
+}
+.rulesModal > div img {
+  width: 100%;
 }
 .modalHeader {
   width: 100%;
@@ -336,8 +354,9 @@ footer button {
   cursor: pointer;
 }
 .modalHeader button:hover {
-  color: black;
+  color: #3D4260;
 }
+/*--------------------------------------------------------------------*/
 .attribution {
   width: 100%;
   height: 400px;
@@ -345,6 +364,7 @@ footer button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 0 15px;
 }
 .attribution p {
   font-size: 40px;
@@ -359,4 +379,100 @@ footer button {
 }
 .attribution a:hover {
   color: rgba(255, 166, 1, 0.95);
+}
+/*--------------------------------------------------------------------*/
+@media (max-width: 900px) {
+  .colorfulBoxes-Small {
+    width: 120px;
+    height: 120px;
+  }
+  .innerWhite-Small {
+    width: 90px;
+    height: 90px;
+  }
+  .colorfulBoxes-Big {
+    width: 160px;
+    height: 160px;
+  }
+  .innerWhite-Big {
+    width: 120px;
+    height: 120px;
+  }
+  .colorfulBoxesContainer .colorfulFlex:first-child {
+    top: -60px;
+    left: -60px;
+  }
+  .colorfulBoxesContainer .colorfulFlex:nth-of-type(2) {
+    top: -60px;
+    right: -60px;
+  }
+  .colorfulBoxesContainer .colorfulFlex:nth-of-type(3) {
+    bottom: -60px;
+  }
+  .blackTriangle img {
+    width: 200px;
+  }
+  header {
+    margin-bottom: 100px;
+  }
+  .attribution {
+    align-items: flex-start;
+  }
+  .attribution p {
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    line-height: 30px;
+  }
+  .scoreContainer img {
+    width: 100px;
+  }
+  .theScore {
+    width: 80px;
+  }
+  .theScore p {
+    font-size: 40px;
+  }
+  .playersContainer {
+    flex-wrap: wrap;
+    max-width: 600px;
+  }
+  .playersContainer > div:first-child {
+    order: 1;
+  }
+  
+  .playersContainer > div:last-child {
+    order: 2;
+  }
+  .announce {
+    order: 3;
+  }
+  .animatedCircles {
+    width: 160px;
+    height: 160px;
+  }
+  .animate-circle {
+    width: 160px;
+    height: 160px;
+  }
+  .announce h1 {
+    font-size: 28px;
+  }
+  .announce button {
+    width: 180px;
+  }
+  .playersContainer h2 {
+    width: 200px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+
+}
+@media (max-width: 500px) {
+  .blackTriangle img {
+    width: 150px;
+  }
+  header {
+    margin-bottom: 150px;
+  }
 }
