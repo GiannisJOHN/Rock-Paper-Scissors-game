@@ -12,6 +12,6 @@ i focus on responsiveness of a site and recently i give my best to upgrade my a1
 3. media queries
 4. flexbox
 
-### DESIGN COMPARISON [HERE](https://www.frontendmentor.io/solutions/interactivepricingcomponent-reactjs-qRWD4UpPc)
+### DESIGN COMPARISON [HERE](https://www.frontendmentor.io/solutions/rock-paper-scissors-game-reactjs-OgwPw3l3w)
 
-### LIVE PREVIEW [HERE](https://mentesidis-interacive-pricing.netlify.app)
+### LIVE PREVIEW [HERE](https://mentesidis-game.netlify.app/)
